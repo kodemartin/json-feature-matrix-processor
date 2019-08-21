@@ -9,6 +9,7 @@ The processing features can be outlined as follows:
 * Read data from JSON file.
 * Transform to `pandas` dataframe.
 * Save the data to `csv` format.
+* Homogenize the data.
 * Evaluate basic statistics on the data.
 * Evaluate and visualize outliers.
 * Apply dimensionality reduction on the data.
@@ -79,18 +80,20 @@ The dataframe is serialized to csv with the `JsonData.to_csv`
 method. To this end, multi-valued features are flattened
 through the `JsonData.transform_vector_features` method.
 
+### Homogenize the data
+
+`JsonData` supports dynamic transformation of multi-valued features
+of the matrix through the `transform_vector_features` instance method.
+
+By default, the latter method reduces the vector features to their
+norm. This is the case when `JsonData.homogeneous_df` is evaluated.
+
 ### Evaluate basic statistics
 
 Feature statistics are exposed through the `JsonData.stats` property
 that wraps the `pandas.DataFrame.describe` method.
 
-In this context, it was considered necessary to apply a tranformation
-to the original dataframe representation, to reduce multi-valued
-features to a single-value representation. To this end, multi-valued
-features are represented by the norm of their vector value in
-a transformed dataframe that can be accessed through `JsonData.homogeneous_df`.
-
-Hence, `JsonData.stats` shows the statistics of `JsonData.homogeneous_df`.
+`JsonData.stats` shows the statistics of `JsonData.homogeneous_df`.
 
 ### Evaluate and visualize outliers
 
