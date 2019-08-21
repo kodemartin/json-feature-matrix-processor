@@ -9,7 +9,7 @@ from sklearn.preprocessing import StandardScaler
 
 class JsonData:
     """Represent JSON data read from a file, providing
-    a series of preprocessing methods.
+    a series of processing methods.
 
     A fixed structure of the JSON data is presumed, conforming
     with the sample in ``./data.json``.
