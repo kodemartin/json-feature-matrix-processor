@@ -56,7 +56,7 @@ Objects of the `JsonData` class are instantiated by passing
 the JSON filename to the constructor.
 
 ```python
-from preprocessors import JsonData
+from processors import JsonData
 
 data = JsonData('data.json')
 ```
